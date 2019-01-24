@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DeseosService } from '../../services/deseos.service';
 import { Lista } from '../../models/lista.model';
-import { NavParams, Item } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 import { ListaItem } from '../../models/lista-item.model';
 
 @Component({
@@ -18,17 +18,23 @@ export class AgregarComponent {
 
     constructor(public deseoService : DeseosService,
                 private navParams: NavParams) {
-        console.log('El indice es: ' + this.navParams.data.indice);            
-        if (this.navParams.data.titulo)
+        console.log('El indice es: ' + this.navParams.data.indice);        
+        console.log('El titulo es: ' + this.navParams.data.titulo);    
+        if (this.navParams.data.titulo != undefined)
         {
             this.lista = new Lista(this.navParams.data.titulo);
             deseoService.agregarLista(this.lista);
             deseoService.persistirListas();
         }         
-        if (this.navParams.data.indice)   
+        if (this.navParams.data.id != undefined)   
         {
             this.listas = deseoService.getListas();
-            this.lista = this.listas[this.navParams.data.indice];
+            for (let listaNum = 0; listaNum < this.listas.length; listaNum++) {
+                if (this.listas[listaNum].id == this.navParams.data.id) {
+                    this.lista = this.listas[listaNum];
+                }
+                
+            }
         }
         
         

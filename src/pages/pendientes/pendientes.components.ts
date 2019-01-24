@@ -18,11 +18,6 @@ export class PendientesComponent {
         this.listas = deseoService.getListas();
     }
 
-    itemSelected(indice: number) {
-        console.log('El indice es: ' + indice);
-        this.navCtrl.push(AgregarComponent, {'indice': indice});
-    }
-
     agregar() {
        // this.navCtrl.push(AgregarComponent);
 
@@ -46,12 +41,6 @@ export class PendientesComponent {
         }]
       });
       prompt.present();
-    }
-
-    quitar(id: number) {
-        console.log('El ID es: ' + id);
-        this.deseoService.quitarLista(id);
-        this.listas = this.deseoService.getListas();
     }
 
 

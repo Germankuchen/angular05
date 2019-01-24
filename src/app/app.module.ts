@@ -18,6 +18,7 @@ import { DeseosService } from '../services/deseos.service';
 
 // Filtros
 import { FiltroCompletadoPipe } from '../pipes/filtro-completado/filtro-completado';
+import { ListasComponent } from '../components/listas.components';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FiltroCompletadoPipe } from '../pipes/filtro-completado/filtro-completa
     PendientesComponent,
     TerminadosComponent,
     AgregarComponent,
-    FiltroCompletadoPipe
+    FiltroCompletadoPipe,
+    ListasComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { FiltroCompletadoPipe } from '../pipes/filtro-completado/filtro-completa
     TabsPage,
     PendientesComponent,
     TerminadosComponent,
-    AgregarComponent
+    AgregarComponent,
+    ListasComponent
   ],
   providers: [
     StatusBar,
